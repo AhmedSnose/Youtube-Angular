@@ -53,7 +53,7 @@ export class NavComponent implements OnInit {
             ...info.payload.doc.data()
           }
         })
-        // this.channelPic = this.datauser[0].channelPic
+        this.channelPic = this.datauser[0].channelPic
         
         // isWrog = do update method insted this shit
         this.us.datauserFS = {...this.datauser[0],...this.datauser[1]}

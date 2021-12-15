@@ -51,9 +51,9 @@
         <mat-divider></mat-divider>
                 <div class="comment-section">
                     <!-- *ngIf='userData' -->
-                      <div *ngIf='userData' class="comment-make">
-                        <img [src]="userData.channelPic" alt="img">
-                            <div class="comment-make-div">
+                      <div class="comment-make">
+                        <img *ngIf='userData' [src]="userData.channelPic" alt="img">
+                            <div *ngIf='userData' class="comment-make-div">
                               <form (ngSubmit)='Comment(cooment)'>
                                 <mat-form-field appearance="legacy">
                                     <mat-label>add comment</mat-label>

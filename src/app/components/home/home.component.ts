@@ -31,11 +31,11 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // this.YTapi.RapidApiYT(this.searchValue).subscribe((d:any)=>  {
-    //    this.items = d  
-    //   // console.log(this.items);
+    this.YTapi.RapidApiYT(this.searchValue).subscribe((d:any)=>  {
+       this.items = d  
+      // console.log(this.items);
       
-    // })
+    })
 
     this.us.getExploreVideos().subscribe((d:any)=>{
       // console.log(d , "this us data")
