@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-b6223": {
+      "hosting": {
+        "App": [
+          "angular-b6223"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-b6223"
+  }
+}

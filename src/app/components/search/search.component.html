@@ -1,0 +1,16 @@
+<mat-card *ngFor='let item of items'>
+    <a [href]='item.url' target="_blank">
+        <img [src]='item.thumbnails'>
+    </a>
+        <div>
+            <mat-card-title>{{ item.titel }}</mat-card-title>
+            <mat-card-subtitle>subs & {{item.time }}</mat-card-subtitle>
+            <span>
+                <img mat-card-avatar [src]='item.channelImg'>
+                <span>{{item.channelTitle}}</span>
+            </span>
+            <mat-card-subtitle>{{item.description}}</mat-card-subtitle>
+            
+        </div>
+
+</mat-card>

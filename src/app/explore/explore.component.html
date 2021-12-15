@@ -1,0 +1,101 @@
+<div  class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 col-sm-12">
+            <div class="right-video" *ngFor='let selctedVideo of selctedVideos'>
+                <video controls autoplay [src]='selctedVideo.video'></video>
+                <div  class="right-video-info">
+
+                    <div class="right-video-info-top">
+                        <div class="right-video-info-top-top">
+                            <span>{{selctedVideo.title}}</span>
+                        </div>
+                        <div class="right-video-info-top-bottom">
+                            <h5>{{selctedVideo.time}} - {{selctedVideo.allViewos}} view</h5>
+
+                            <div *ngIf='userData' class="like-box">
+                                <span #c ><mat-icon  (click)='like(selctedVideo)'>thumb_up</mat-icon> 
+                                    {{likes}} 
+                                </span>
+                                <!-- <span><mat-icon>thumb_down</mat-icon></span> -->
+                                <span><mat-icon>turned_in_not</mat-icon></span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <mat-divider></mat-divider>
+
+                    <div class="right-video-info-bottom">
+                        <div class="right-video-info-bottom-top">
+                            <div class="channel-box">
+                                <img [src]="selctedVideo.channelPic" alt="img">
+                                <div>
+                                    <span>{{selctedVideo.channelName}}</span>
+                                    <span>{{subsAmoount}} subscribers</span>
+                                </div>
+                            </div>
+                            <button *ngIf='userData' #subBtn class="btn btn-danger" (click)="Subscribe()">subscribe</button>
+                            <button routerLink="/signup" *ngIf='!userData' class="btn btn-primary">sign up To enable 🔐</button>
+                        </div>
+                        <mat-divider></mat-divider>
+
+                        <div class="right-video-info-bottom-bottom">
+                            <p>{{selctedVideo.description}}</p>
+                        </div>
+                    </div>
+                </div>
+                <mat-divider></mat-divider>
+
+        <!-- comment section -->
+        <span>{{ commentsAmount }} comment</span>
+        <mat-divider></mat-divider>
+                <div class="comment-section">
+                    <!-- *ngIf='userData' -->
+                      <div *ngIf='userData' class="comment-make">
+                        <img [src]="userData.channelPic" alt="img">
+                            <div class="comment-make-div">
+                              <form (ngSubmit)='Comment(cooment)'>
+                                <mat-form-field appearance="legacy">
+                                    <mat-label>add comment</mat-label>
+                                    <input matInput placeholder="comment !" #cooment>
+                                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                                    <mat-hint>{{userData.name}}</mat-hint>
+                                  </mat-form-field> 
+                              </form>
+                            </div>
+                    </div>
+                    <mat-divider></mat-divider>
+                    <div class="comments" *ngFor='let comment of comments'>
+                        <span></span>
+                        <div class="comment-img">
+                            <img [src]="comment.pic" alt="img">
+                        </div>
+                        <div class="comment-box">
+                            <h4><span>{{comment.time}}</span> {{comment.name}}</h4>
+                            <p>{{comment.comment}}</p>
+                        </div>
+                   </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-12">
+            <div class="left-video" *ngFor='let video of videos; index as i'>
+                <!-- <video [(src)]="videoSrc" controls [poster]="video.thumbnail"></video> -->
+                <div class="img-container">
+                    <img [src]="video.thumbnail" (click)='playVideo(video)' alt="video">
+                    <span>
+                        {{video.duration}}
+                    </span>
+                </div>
+                <div class="flex-col">
+                    <h3>{{(video.title.length > 35) ? video.title.substr(0 , 35 -1) + "..." : video.title}}</h3>
+                    <h4>{{video.channelName}}</h4>
+                    <h5>{{video.date}} / {{video.allViewos}} view</h5>
+                </div>                
+            </div>
+        </div>
+
+    </div>
+</div>

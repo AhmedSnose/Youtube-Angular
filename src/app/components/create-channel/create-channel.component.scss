@@ -1,0 +1,65 @@
+.well{
+    margin: 20px;
+}
+
+.buttons{
+    margin: 10px;
+    padding: 10px;
+    button{
+        margin: 5px;
+        padding: 7px;
+    }
+}
+  form{
+    margin: 20px;
+    mat-form-field:last-of-type{
+        margin: 5px;
+        width: 100%;
+        textarea{
+            height: 150px;
+        }
+    }
+    .example-form {
+        min-width: 150px;
+        max-width: 500px;
+        width: 100%;
+      }
+      
+      .example-full-width {
+        width: 100%;
+      }
+  }
+
+.example-ripple-container {
+    cursor: pointer;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    height: 300px;
+    line-height: 300px;
+  
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+  
+    -webkit-user-drag: none;
+    -webkit-tap-highlight-color: transparent;
+
+    img{
+        max-width: 100%;
+        z-index: 2;
+        height: 100%;
+        object-fit: cover;
+    }
+  }
+  
+  /** Styles to make the demo look better. */
+  .example-ripple-checkbox {
+    margin: 6px 12px 6px 0;
+  }
+  
+  .example-ripple-form-field {
+    margin: 0 12px 0 0;
+  }
+
+  

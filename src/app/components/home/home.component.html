@@ -1,0 +1,70 @@
+
+
+  <div #lastSpan class="categories scrollbarplugin" (scroll)='categoriesScrolling(lastSpan)'>
+        <span #code class="active" (click)='selectSuggest(code)'>code</span>
+        <span #music (click)='selectSuggest(music)'>music</span>
+        <span #Football (click)='selectSuggest(Football)' >Football</span>
+        <span #comedian (click)='selectSuggest(comedian)'>comic</span>
+        <span #carton (click)='selectSuggest(carton)'>kids</span>
+        <span #sports (click)='selectSuggest(sports)'>sports</span>
+        <span #Live (click)='selectSuggest(Live)'>streams</span>
+        <span #videoGame (click)='selectSuggest(videoGame)'>video games</span>
+        <span #squidGame (click)='selectSuggest(squidGame)'>squid game</span>
+        <span #cook (click)='selectSuggest(cook)'> cook</span>
+
+        <span *ngIf='!isReached' (click)='scrollForMobile(lastSpan)' class="overLayR">
+            ➡
+        </span>
+  </div>
+
+
+ <div class="suggestions scrollbarplugin">
+    <div class="suggest" *ngFor='let item of items'>
+      <mat-card>
+        <a [href]='item.url' target="_blank">
+            <img [src]='item.thumbnails'>
+        </a>
+            <div>
+                <mat-card-title>{{ item.title }}</mat-card-title>
+                <mat-card-subtitle>{{item.views}} Before {{item.uploadedAt }}</mat-card-subtitle>
+                <span>
+                    <img mat-card-avatar [src]='item.channelImg'>
+                    <span>{{item.channelTitle}}</span>
+                </span>                
+            </div>  
+       </mat-card>
+    </div>
+</div>
+
+<h2 class="heading1">Explore</h2>
+
+<div class="suggestions scrollbarplugin">
+  <div class="suggest" *ngFor='let item of explorVideos; index as i'>
+    <mat-card>
+      <a [routerLink]="['explore', i]">
+        <!-- [href]='item.thumbnail' -->
+          <img [src]='item.thumbnail'>
+      </a>
+          <div>
+              <mat-card-title>{{ item.title }}</mat-card-title>
+              <mat-card-subtitle> Before {{item.date }}</mat-card-subtitle>
+              <!-- subs -->
+              <span>
+                  <img mat-card-avatar [src]='item.channelPic'>
+                  <span>{{item.channelName}}</span>
+              </span>                
+          </div>  
+     </mat-card>
+  </div>
+</div>
+
+<h2 class="heading1">Create A Channel ! 👉<a class="nav-link" routerLink="/signup">Go</a></h2>
+
+    <!-- <youtube-player 
+    videoId="GYAB4Td62zI" 
+    suggestedQuality="highres" 
+    [height]="200" 
+    [width]="250" 
+    [startSeconds]="4"
+    [endSeconds]="8">
+    </youtube-player> -->

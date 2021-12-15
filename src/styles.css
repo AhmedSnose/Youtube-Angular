@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; overflow-x: hidden;}
+.arrow{
+    background: #000;
+    font-size: 90px;
+}
+
+
+.router-container{
+    position: relative;
+}
+
+.router-container > *{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+}

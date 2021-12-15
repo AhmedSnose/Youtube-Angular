@@ -1,0 +1,117 @@
+
+
+.categories{
+    display: flex;
+    flex-direction: row;
+    border: 0.5px solid #ddd;
+    border-left: none;
+    border-right: none;
+    overflow: scroll;
+    position: relative;
+    span{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        white-space: nowrap;
+        margin: 10px;
+        font-size: 20px;
+        border-radius: 8%;
+        padding: 10px;
+        background: #ddd;
+        width: 100%;
+        cursor: pointer;
+        transition: all .5s ease-in-out;
+
+    }
+    .active{
+        background: #000;
+        color: white;
+    }
+    .overLayR{
+        position: absolute;
+        right: 0;
+        width: 50px;
+        margin: 0;
+        border-radius: 5px 0 0 5px;
+        padding: 20px;
+        top: 0;
+        background: linear-gradient(to left, white 63%, rgba(255, 255, 255, 0) 108%);
+        transition: all .5s ease-in-out;
+        cursor: pointer;
+    }
+
+}
+
+.suggestions{
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+    // margin-top: 20px;
+    .suggest{
+        .mat-card{
+            margin: 5px;
+            padding: 10px;
+            mat-card-title{
+                margin: 10px;
+
+            }
+            mat-card-subtitle{
+                margin: 4px 5px;
+            }
+
+            div{
+                height: 10rem;
+            }
+            div > span {
+                display: flex;
+                justify-content: flex-start;
+                flex-direction: row;
+                .mat-card-avatar{
+                    height: 2rem;
+                    width: 2rem;
+                    margin: 5px;
+                }
+                span{
+                    margin: 5px;
+
+                }
+            }
+        }
+
+
+        img{
+    width: 280px;
+    max-height: 156px;
+    object-fit: cover;
+        }
+        mat-card-title{
+            font-size: 17px;
+        }
+
+    }
+}
+
+.heading1{
+    margin: 0;
+    font-size: 20px;
+    color: #a6a6a6;
+    padding: 10px;
+    font-weight: 900;
+    font-family: unset;
+    letter-spacing: 3px;
+}
+
+
+
+
+// hide scrollbar
+.scrollbarplugin::-webkit-scrollbar {
+    display: none;
+    scroll-behavior: smooth;
+
+}
+.scrollbarplugin {
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+}
+

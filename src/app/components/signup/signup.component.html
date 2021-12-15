@@ -1,0 +1,33 @@
+<div class="body">
+
+    <div class="container">
+        <h1 class="text-center"> Sign In</h1>
+        <form #f='ngForm' (ngSubmit)='signup(f)'>
+            <input ngModel name='name' #name='ngModel' type="text" class="form-control" placeholder="name" required>
+            <p class="alret alert-danger" *ngIf='name.invalid && name.touched'> Enter a Valid Name</p>
+
+            <input ngModel name='email' #email='ngModel' type="email" class="form-control" placeholder="Email" id="email" required email>
+            <p class="alret alert-danger" *ngIf='email.touched && email.control.errors?.["required"]'> email is required </p>
+            <p class="alret alert-danger" *ngIf='email.touched && email.control.errors?.["email"]'> Your input dosen't match email format</p>
+
+
+            <input ngModel #password='ngModel' name='password' type="password" class="form-control" placeholder="password" required minlength="6">
+            <p class="alret alert-danger" *ngIf='password.touched && password.control.errors?.["required"]'> password is required </p>
+            <p class="alret alert-danger" *ngIf='password.touched && password.control.errors?.["minlength"]'>password Should be 6 Characters+</p>
+
+
+            <input ngModel #REpassword='ngModel' name='REpassword' type="password" class="form-control" placeholder="Re password" required >
+            <p class="alret alert-danger" *ngIf='REpassword.invalid && REpassword.touched'> Enter a Valid REpassword</p>
+            <p class="alret alert-danger" *ngIf='password.value !== REpassword.value && REpassword.touched'> password are not equal to REpassword</p>
+
+            <input ngModel name='Address' #address='ngModel'  type="text" class="form-control" placeholder="Address" required>
+            <p class="alret alert-danger" *ngIf='address.invalid && address.touched'> Enter a Valid Address</p>
+
+            <button type="submit" [disabled]='f.invalid || password.value !== REpassword.value' class="btn btn-primary">Create Account</button>
+        </form>
+        <div class="alert alert-danger" *ngIf='errorMessage'>{{errorMessage}}</div>
+    </div>
+
+  </div>
+
+  

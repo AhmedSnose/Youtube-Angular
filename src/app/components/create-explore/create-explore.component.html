@@ -1,0 +1,58 @@
+<form #f='ngForm' (ngSubmit)='submiting(f)'>
+
+    <div class="vidro-thumbnails">
+        <div 
+        class="example-ripple-container mat-elevation-z4 thumbnail"
+        matRipple 
+        (click)="clickOnInputThumb(thumb)">
+            <input #thumb style="display: none;" type="file" ngModel name='thumbnail' required (change)='thumbChangeHandler($event)'  accept="image/*">
+            <img [(src)]="thumbnails" alt="file">
+        </div>
+
+        <div 
+        class="example-ripple-container mat-elevation-z4 videos"
+        matRipple 
+        (click)="clickOnInputVideo(inputFile)">
+            <input #inputFile style="display: none;" type="file" (change)='videoChangeHandler($event)' >
+            <!-- <img [(src)]="video" alt="file"> -->
+            <video #vid [(src)]="video" width="300" height="400" controls (loadedmetadata)="onMetadata(vid)">
+                
+            </video>
+        </div>
+    </div>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Title</mat-label>
+    <input autocomplete="false" matInput placeholder="Ex. Ahmed Gaming" type="text" ngModel name='title' required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>description</mat-label>
+        <textarea matInput required ngModel name="description">Channel description</textarea>
+    </mat-form-field>
+
+
+    <mat-form-field class="example-chip-list" appearance="fill">
+        <mat-label>keywords</mat-label>
+        <mat-chip-list #chipList aria-label="Fruit selection">
+          <mat-chip *ngFor="let fruit of fruits" (removed)="remove(fruit)">
+            {{fruit.name}}
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip>
+          <input placeholder="New fruit..."
+                 [matChipInputFor]="chipList"
+                 [matChipInputAddOnBlur]="addOnBlur"
+                 (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
+      </mat-form-field>
+
+    <div *ngIf='!isLoading' class="buttons">
+        <button class="btn btn-danger">Skip</button>
+        <button type="submit" [disabled]='f.invalid' class="btn btn-primary">Ok</button>
+    </div>    
+</form>
+<div *ngIf='isLoading' class="r-c">
+  <div class="loading"></div>
+</div>

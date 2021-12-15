@@ -1,0 +1,61 @@
+<!-- ls.isLoading | async -->
+<!-- mode="determinate" value="40" -->
+
+<nav class="MyFlex">
+    <mat-progress-bar class="loadingBar" *ngIf='ls.isLoading | async' mode="indeterminate"></mat-progress-bar>
+
+<div class="MyFlex">
+    <mat-icon routerLink="login" *ngIf="!isUser">account_circle</mat-icon>
+
+    <a mat-icon-button [matMenuTriggerFor]="languages" *ngIf='isUser'>
+     <img *ngIf='channelPic' class="avatar" [src]="channelPic"/>
+
+          <mat-menu #languages="matMenu">
+            <button mat-menu-item >
+                <mat-icon>account_box</mat-icon>
+                My Channel</button>
+            
+            <button mat-menu-item >
+                <mat-icon>settings</mat-icon>
+                setting</button>
+            <button mat-menu-item [matMenuTriggerFor]="theme">
+                <mat-icon>brightness_3</mat-icon>
+                themes</button>
+          </mat-menu>
+      
+      
+          <mat-menu #theme="matMenu">      
+              <button mat-menu-item>
+                <mat-icon>brightness_5</mat-icon>
+                  basic</button>
+              <button mat-menu-item>
+                <mat-icon>brightness_6</mat-icon>
+                  dark</button>
+          </mat-menu>
+
+          
+    </a>
+
+    <mat-icon class="Hicon sm-hide" >notifications</mat-icon>
+    <!-- matBadge="3" matBadgeColor="warn" -->
+    <mat-icon class="Hicon sm-hide">view_module</mat-icon>
+    <mat-icon routerLink="create-explore" class="Hicon">video_call</mat-icon>
+</div>
+<div *ngIf='!channelPic' class="MyFlex">
+    sign up to enable the search bar 🔓
+</div>
+<div *ngIf='channelPic' class="MyFlex">
+    <span class="micSpan"><mat-icon>mic</mat-icon></span>
+    <div class="inputSearch">
+        <span (click)='Search(SearchInputValue)'><mat-icon>search</mat-icon></span>
+        <mat-icon  class="keyboard" style="font-size: 20px; margin-right: auto;" >keyboard</mat-icon>
+        <input  #SearchInputValue
+        dir="rtl" type="text" placeholder="Search" ></div>
+    </div>
+
+<div class="MyFlex">
+    <img class="sm-hide" src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg">
+    <mat-icon class="Hicon"  (click)="ToggleShowFiller()">menu</mat-icon>
+</div>
+
+</nav>

@@ -1,0 +1,127 @@
+
+$small: 400px;
+$medium: 900px;
+
+  //some CSS
+  @media screen and (max-width: $small) {
+    .Hicon.sm-hide{
+        display: none;
+
+    }
+}
+  @media screen and (max-width: $medium) {
+    .keyboard{
+        display: none;
+    }
+    .micSpan{
+        display: none;
+
+    }
+    .sm-hide{
+        display: none;
+    }
+
+  }
+
+
+
+// @mixin and @include
+
+@mixin spaneto {
+    background-color: #f1f0f0;
+    height: 100%;
+    margin: 0;
+    padding: 2px;
+}
+
+.Hicon{
+    border-radius: 50%;
+    transition: all .3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 34px;  
+    height: 34px;
+
+    &:hover{
+        background-color: #d3d3d3;
+        cursor: pointer;
+    }
+}
+// ============================ 
+.loadingBar{
+    margin: 0;
+    position: absolute;
+    top: 0;
+}
+nav{
+    position: -webkit-sticky; /* for Safari */
+    position: sticky;
+    top: 0;
+    align-self: flex-start; /* <-- this is the fix */
+    background: rgba(255,255,255,0.89);
+    z-index: 3;
+}
+.MyFlex{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    & * {
+        margin: 5px;
+    }
+}
+
+.MyFlex:first-child{
+
+    .inputSearch{
+        border: 1px solid #4d4d4d;
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-grow: 1;
+        input{
+            outline: none;
+            border: none;
+            padding:4px;
+            width: 100%
+        }
+        span {
+            @include spaneto;
+        }
+
+    }
+}
+
+.avatar{
+        max-width: 33px;
+        max-height:33px;
+        object-fit: cover;
+        border-radius: 100%;
+    
+}
+
+
+
+// =================
+.MyFlex:nth-child(1){
+    .micSpan{
+        @include spaneto;
+        border-radius: 50%;
+        margin-right: 7px;
+        background: #d3d3d36b;
+    }
+}
+.MyFlex:nth-child(2){
+// flex-grow: 1;
+}
+
+
+
+.MyFlex:last-child{
+    img{
+        height: 33px;
+    }
+}
+
+

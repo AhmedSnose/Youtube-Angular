@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <div class="well">
+        <h1>Step 2</h1>
+        <h3>Channel Information</h3>
+    </div>
+
+    <div class="well">
+        <strong>Join at  </strong> <span>{{date}}</span>
+    </div>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <div 
+        class="example-ripple-container mat-elevation-z4"
+        matRipple 
+        (click)="clickOnInputFile(inputFile)">
+            <input #inputFile style="display: none;" type="file" (change)='fileChangeHandler($event)'>
+            <img [(src)]="imgAva" alt="file">
+        </div>
+    </div>
+    <div class="col-md-6">  
+    <form #f='ngForm' (ngSubmit)='submiting(f)'>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Your Channel Name</mat-label>
+          <input autocomplete="false" matInput placeholder="Ex. Ahmed Gaming" type="text" ngModel name='name' required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>description</mat-label>
+            <textarea matInput required ngModel name="description">Channel description</textarea>
+          </mat-form-field>
+          <div class="buttons">
+            <button class="btn btn-danger">Skip</button>
+            <button type="submit" class="btn btn-primary">Ok</button>
+
+        </div>
+      </form>
+    </div>
+
+
+
+</div>
+
+</div>
+
+<!-- [matRippleCentered]="centered"
+[matRippleDisabled]="disabled"
+[matRippleUnbounded]="unbounded"
+[matRippleRadius]="radius" -->
