@@ -15,7 +15,10 @@
         (click)="clickOnInputVideo(inputFile)">
             <input #inputFile style="display: none;" type="file" (change)='videoChangeHandler($event)' >
             <!-- <img [(src)]="video" alt="file"> -->
-            <video #vid [(src)]="video" width="300" height="400" controls (loadedmetadata)="onMetadata(vid)">
+            <span class="text-center" *ngIf='!video'>
+              <mat-icon>add_to_queue</mat-icon>
+            </span>
+            <video *ngIf='video' #vid [src]="video" width="300" height="400" controls (loadedmetadata)="onMetadata(vid)">
                 
             </video>
         </div>

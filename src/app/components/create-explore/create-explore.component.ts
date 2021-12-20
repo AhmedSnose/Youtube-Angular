@@ -40,7 +40,8 @@ export class CreateExploreComponent implements OnInit {
   panelOpenState = false;
   thumbFile? : any
   videoFile? : any
-  video? : any = 'https://i.imgur.com/1A7AKoF.mp4'
+  video? : any
+  //  = 'https://i.imgur.com/1A7AKoF.mp4'
   thumbnails? : any = 'https://havecamerawilltravel.com/wp-content/uploads/2015/08/YouTube-Thumbnails.jpg'
   duration? : any
   isLoading?  = false

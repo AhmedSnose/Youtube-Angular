@@ -33,6 +33,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.YTapi.RapidApiYT(this.searchValue).subscribe((d:any)=>  {
        this.items = d  
+       console.log(d , "selected vid");
+       
       // console.log(this.items);
       
     })

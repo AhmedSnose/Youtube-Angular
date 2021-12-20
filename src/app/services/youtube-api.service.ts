@@ -13,7 +13,7 @@ export class YoutubeApiService {
   }
 
   ApiObserable? : any = []
-  subs =  Math.ceil(Math.random() * 200000)
+  subs =  Math.ceil(Math.random() * 2000)
 
   getSearchYoutoubeApi(inputSearchValue : any){    
   return this.http.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=6&q=${inputSearchValue}&key=AIzaSyAsIsEpW5rvraVKVdErYeqHnLTPjsL-zM8`).pipe(map((data:any)=> {
@@ -44,6 +44,12 @@ export class YoutubeApiService {
     return str?.length > n ? str.substr(0 , n -1) + "..." : str
     // google it truncate
 }
+
+
+ kFormatter(num : any) {
+    return Math.abs(num) > 999 ? Math.sign(num)*(<any>(Math.abs(num)/1000).toFixed(2)) + 'k' : Math.sign(num)*Math.abs(num)
+}
+
   RapidApiYT(SearchValue : string){
     return this.http.get('https://youtube-search-results.p.rapidapi.com/youtube-search/' , 
     {
@@ -55,12 +61,13 @@ export class YoutubeApiService {
 
       , 
     }).pipe(map((data:any)=> {
+      
       return  data.items.map((item : any)=>{
         return {
           title:this.truncate(item?.title , 50),
           uploadedAt:item.uploadedAt,
           url:item.url,
-          views:item.views,
+          views:this.kFormatter(item.views),
           thumbnails:item.thumbnails[0].url,
           duration:item.duration,
           channelImg:item.author.avatars[0].url,
@@ -68,7 +75,7 @@ export class YoutubeApiService {
           channelTitle:item.author.name,
           verified:item.author.verified,
           description:item.description,
-          subs:this.subs
+          subs:this.kFormatter(this.subs)
 
         }
       })
