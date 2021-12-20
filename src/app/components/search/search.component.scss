@@ -1,10 +1,12 @@
+
+
 mat-card{
     display: flex;
-
+    flex-wrap: wrap;
     margin: 10px;
     img{
         max-height: 200px;
-        width: 360px;
+        width: 265px;
         object-fit: cover;
     }
     div {
